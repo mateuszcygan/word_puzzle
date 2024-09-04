@@ -1,5 +1,5 @@
 ### Wordy Puzzle Game
-Challange that comes from https://entwicklerheld.de/
+Challange come from https://entwicklerheld.de/
 
 This challenge is to implement the core logic of a word-guessing game. You will write two key functions:
 
