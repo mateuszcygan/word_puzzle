@@ -21,23 +21,15 @@ def check_guess(secret_word, guess):
     return expected
 
 
-def precompute_frequencies(words):
-    frequency_map = {}
-    for word in words:
-        frequency_map[word[0]] = Counter(word[1])
-    return frequency_map
-
-
 def guess_word(word_list, word_length, feedback_history):
 
-    for guess_word in word_list:
-        expected = check_guess("secret", guess_word)
-        feedback_history.append((guess_word, expected))
+    if len(feedback_history) == 0:
 
-    frequency_map = precompute_frequencies(feedback_history)
+        # dictionary - letter at the correct position ('G'), list - letters that the secret word includes
+        secret_word = {}
+        secret_letters = []
 
-    for key, counter in frequency_map.items():
-        if counter("G") == 6:
-            return key
-        else:
-            return None
+        for i in word_length:
+            secret_word[i] = None
+
+        return word_list[0]
